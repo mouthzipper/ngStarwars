@@ -1,0 +1,38 @@
+<section id="dashboard-view">
+	<div class="container">
+		<div class="row">
+				<h2 class="text-center">Search Star Wars Film</h2>
+		</div>
+		<div class="row col-md-12 text-center">
+			<form role="search" class="form-inline search-form" ng-submit="vm.searchFilms( vm.searchText )">
+				<div class="input-group input-group-lg">
+					<input type="search" class="form-control search-field" ng-model="vm.searchText" placeholder="Search Star Wars Film">
+					<span class="input-group-btn">
+						<button type="submit" class="btn btn-default search-submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+					</span>
+				</div>
+			</form>
+		</div>
+		<div class="clearfix"></div>
+		<hr>
+		<div class="loading" ng-if="vm.loading">Loading&#8230;</div>
+		<div class="container mt-4" ng-if="!vm.loading">
+			<div class="row">
+					<div class="col-sm-6"  ng-repeat="film in vm.films">
+							<div class="card card-default" ng-click="vm.showFilmDetails(film)">
+									<div class="card-header">
+											<h3 class="card-title">{{film.title}}</h3>
+									</div>
+									<div class="card-block">
+											<p>{{film.opening_crawl}}</p>
+											<p><b>Episode:</b> {{film.episode_id}}</p>
+											<p><b>Release Date:</b> {{film.release_date}}</p>
+											<p><b>Producer:</b> {{film.producer}}</p>
+											<p><b>Director:</b> {{film.director}}</p>
+									</div>
+							</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</section>
